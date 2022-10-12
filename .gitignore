@@ -1,5 +1,5 @@
 /shelf/
 /workspace.xml
 **/conf/.env
-**/.idea/workspace.xml
-**/.idea/tasks.xml
+**/.idea
+**/src/main/java/org.goodnewstbot/KeyWords.java
