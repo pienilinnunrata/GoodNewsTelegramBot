@@ -18,7 +18,8 @@ import static org.goodnewstbot.news.NewsClient.*;
 
 public class TelegramBot extends TelegramLongPollingBot {
 
-    Environment env = new Environment();
+    private final String BOT_NAME;
+    private final String BOT_TOKEN;
 
     private enum MessageType {
         START,
@@ -29,14 +30,19 @@ public class TelegramBot extends TelegramLongPollingBot {
         INVALID
     }
 
+    public TelegramBot(String botName, String botToken) {
+        this.BOT_NAME = botName;
+        this.BOT_TOKEN = botToken;
+    }
+
     @Override
     public String getBotUsername() {
-        return env.getEnvValue("BOT_NAME");
+        return BOT_NAME;
     }
 
     @Override
     public String getBotToken() {
-        return env.getEnvValue("TOKEN");
+        return BOT_TOKEN;
     }
 
     @Override

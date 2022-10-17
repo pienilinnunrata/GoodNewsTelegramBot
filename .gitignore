@@ -1,6 +1,5 @@
 /shelf/
 /workspace.xml
-**/conf/.env
 /.idea/
 src/main/resources/key_words
 /target/
