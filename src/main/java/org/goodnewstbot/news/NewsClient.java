@@ -7,6 +7,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -26,7 +27,7 @@ public class NewsClient {
     private final String newsUrl;
     private final List<String> keyWords;
 
-    public NewsClient(String newsUrl) {
+    public NewsClient(String newsUrl) throws FileNotFoundException {
         this.newsUrl = newsUrl;
         this.keyWords = getKeyWords();
     }

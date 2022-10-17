@@ -9,6 +9,7 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import java.io.FileNotFoundException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -71,9 +72,9 @@ public class TelegramBot extends TelegramLongPollingBot {
             case START:
                 return "Даров! Напиши */news*, чтобы получить рандомную новость 🌝 \nПодробнее о возможностях бота можешь узнать написав */info*";
             case INFO:
-                return "Я отфильтровываю новости по ключевым словам, связанными с кхм текущей ситуевиной кхм. " +
+                return "Я отфильтровываю новости по ключевым словам, связанными с трагическими вестями. " +
                         "\nНапиши */news*, чтобы получить какую-нибудь новость 🌚" +
-                        "\nНапиши */news мир* , чтобы получить новость из мира 🌍" +
+                        "\nНапиши */news мир*, чтобы получить новость из мира 🌍" +
                         "\nНапиши */news россия*, чтобы получить новость из России 👀";
             case NEWS_RSS:
                 return getNewsArticleMessage(RSS);
@@ -106,6 +107,8 @@ public class TelegramBot extends TelegramLongPollingBot {
         }
         catch (NoNewsException e) {
             return "А вот нету статей, которые бы прошли фильтр :( Может пора посмотреть сериальчик?";
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
         }
     }
 
