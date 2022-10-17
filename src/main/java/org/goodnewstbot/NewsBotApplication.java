@@ -14,7 +14,7 @@ public class NewsBotApplication {
     public static void main(String[] args) {
         try {
             TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
-            botsApi.registerBot(new TelegramBot(getenv.get("BOT_NAME"), getenv.get("TOKEN")));
+            botsApi.registerBot(new TelegramBot(getenv.get("BOT_NAME"), getenv.get("BOT_TOKEN")));
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
